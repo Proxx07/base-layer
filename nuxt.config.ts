@@ -11,11 +11,11 @@ export default defineNuxtConfig({
     '@base-composables': resolve('./composables'),
   },
 
-  /* imports: {
+  imports: {
     dirs: [
       './composables/!**',
     ],
-  }, */
+  },
 
   runtimeConfig: {
     apiBaseUrl: 'NUXT_API_BASE_URL',
