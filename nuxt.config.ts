@@ -6,9 +6,16 @@ const { resolve } = createResolver(import.meta.url);
 export default defineNuxtConfig({
   devtools: { enabled: false },
   compatibilityDate: '2024-11-01',
-
+  /*
   alias: {
     '@base-composables': resolve('./composables'),
+  },
+  */
+
+  imports: {
+    dirs: [
+      resolve('./composables/**'),
+    ],
   },
 
   runtimeConfig: {
