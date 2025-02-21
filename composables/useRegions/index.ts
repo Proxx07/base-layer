@@ -4,13 +4,13 @@ import type { IRegion } from './types';
 import { centerCoordsDefault } from './models';
 
 interface RegionsComposable {
-  regions: ComputedRef<IRegion>[]
+  regions: ComputedRef<IRegion[]>
   loading: ComputedRef<boolean>
   activeRegion: ComputedRef<IRegion | undefined>
   currentRegionId: CookieRef<number>
   activeRegionCenterCoords: Ref<[number, number]>
   setRegionId: (value: number) => void
-  getRegions: Promise<void>
+  getRegions: () => Promise<void>
 }
 
 export const useRegions = (): RegionsComposable => {
@@ -22,9 +22,9 @@ export const useRegions = (): RegionsComposable => {
 
   const activeRegionCenterCoords = ref<[number, number]>(centerCoordsDefault);
 
-  const loading = computed(() => status.value === 'pending');
+  const loading = computed<boolean>(() => status.value === 'pending');
 
-  const regions = computed(() => data.value || []);
+  const regions = computed<IRegion[]>(() => data.value || []);
 
   const setRegionId = (value: number) => {
     currentRegionId.value = value;
