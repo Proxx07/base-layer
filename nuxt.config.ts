@@ -1,23 +1,21 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-/*
 import { createResolver } from '@nuxt/kit';
+
 const { resolve } = createResolver(import.meta.url);
-*/
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
   compatibilityDate: '2024-11-01',
-  /*
+
   alias: {
     '@base-composables': resolve('./composables'),
   },
-  */
 
-  imports: {
+  /* imports: {
     dirs: [
-      './composables/**',
+      './composables/!**',
     ],
-  },
+  }, */
 
   runtimeConfig: {
     apiBaseUrl: 'NUXT_API_BASE_URL',
